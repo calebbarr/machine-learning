@@ -127,7 +127,7 @@ object TrainNERModels {
   /**
    * Takes in an entity tag of some format, reformats it to OpenNLP format
    * Implementation function will have to be supplied out for each new data set
-   * @args: entityTag, a String representing
+   * @args: entityTag, a String representing an entity
    */
   def reformatEntityTag(entityTag:String):String = {
     DATA_SET match {
