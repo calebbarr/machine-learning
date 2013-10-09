@@ -1,4 +1,5 @@
 /**
+ * @author Caleb Barr
 A routine to train NER models using OpenNLP and export them to S3.
 **/
 
