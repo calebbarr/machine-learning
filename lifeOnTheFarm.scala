@@ -25,7 +25,7 @@ val truePositives,falsePositives,trueNegatives,falseNegatives = sc.accumulator(0
 def logit = {(dotProduct:Double) =>  { val maxAbsoluteValueForExponentiation = 709.7825; if(math.abs(dotProduct) < maxAbsoluteValueForExponentiation)
           (math.exp(dotProduct) / (1 + math.exp(dotProduct) )) else if(dotProduct < 0)  0.0 else  1.0 } }
 // classify instances, evaluate each classification
-instances map { instance => { (instance._1, instance._2.dot(w) > threshold )}} foreach { case(label,classification) => { (label,classification) 
+instances map { instance => { (instance._1, logit(instance._2.dot(w)) > threshold )}} foreach { case(label,classification) => { (label,classification) 
   match {
   case (1.0,true) => {truePositives +=1} 
   case (1.0,false) => { falsePositives +=1} 
